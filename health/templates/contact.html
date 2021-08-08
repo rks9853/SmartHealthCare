@@ -1,0 +1,156 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<div class="map p-2" style="margin-top:6%;border:3px solid lightgray">
+		<iframe style="width:100%;height:400px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.831126910175!2d85.88933861487392!3d20.47212808630254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190d7fd866141d%3A0xcb2c394af5c137e0!2sS.C.B.%20Medical%20College%20and%20Hospital!5e0!3m2!1sen!2sin!4v1626937403811!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+	</iframe>"
+
+</div>
+
+	<div class="contact-w3l py-5" id="contact">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="title-section mb-sm-5 mb-4">
+				<h6 class="w3ls-title-sub"></h6>
+				<h3 class="w3ls-title text-uppercase text-bl font-weight-bold">How to Contact Us</h3>
+			</div>
+
+			<div class="row pt-md-0">
+				<div class="col-lg-6 contact-agileits-w3layouts">
+					<h4 class="contact-title text-uppercase text-bl mb-sm-4 mb-3"></h4>
+					<h5 class="font-weight-light text-bl">
+
+						<h3 style="color:Aqua;"> Our System </h3>
+						Smart Health Care offers reliable and trusted in-home
+						and site support services for pharmaceutical and biomedical clinical trials
+						in Odisha.
+
+						<h3 style="color:Aqua;"> Services </h3>
+						Smart Health Care offers a wide range of home based nursing services.
+						Learn more about what we can do for you
+						and comments within 24 hours.
+
+						<h3 style="color:Aqua;"> Why home visits? </h3>
+						The key to a successful clinical trial is subject participation and retention.
+						Learn more about what we can do for you.
+					</h5>
+
+					<div class="midd-contact my-xl-5 my-4 pl-4 border-left">
+						<h6 class="text-bl mb-2">Address & Direction:</h6>
+						<p>sed quia consequuntur magni dolores eos qui</p>
+					</div>
+
+					<p class="para-agileits-w3layouts">
+						<i class="fa fa-map-marker pr-3">Odisha</i></p>
+					<p class="para-agileits-w3layouts my-sm-3 my-2">
+						<i class="fa fa-phone pr-3">(91)9658947919</i></p>
+					<p class="para-agileits-w3layouts">
+						<i class="fa fa-envelope-open pr-2">smart@healthcare.com</i>
+						<a href="mailto:mail@example.com"></a>
+					</p>
+				</div>
+
+				<div class="col-lg-6 regstr-r-w3-agileits mt-lg-0 mt-5">
+					<h4 class="contact-title text-uppercase text-bl mb-sm-4 mb-3">Suggestion Box</h4>
+					<div class="form-bg-w3ls">
+						<form action="#" method="post">
+						{% csrf_token %}
+							<div class="form-group">
+								<input type="text" name="Name" class="form-control" placeholder="Name" required="">
+							</div>
+							<div class="form-group">
+								<input type="email" name="Email" class="form-control" placeholder="Email" required="">
+							</div>
+							<div class="form-group">
+								<input type="text" name="Subject" class="form-control" placeholder="Subject" required="">
+							</div>
+							<div class="form-group">
+								<textarea name="Message" class="form-control" placeholder="Message" required=""></textarea>
+							</div>
+							<button type="submit" class="button-w3layouts btn text-uppercase">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section>
+			 <head>
+        <title>Testing</title>
+         <style>
+    #ABC {
+        background-image: linear-gradient(45deg,rgb(255, 99, 71, 0.6) 10%, #c0c0c0 90%);
+      border: 2px solid red;
+      padding: 1em;
+      border-radius: 3px;
+      margin: 1em 0;
+     color: #fff;
+    }
+  </style>
+</head>
+
+        <section id="ABC">
+
+		 <div class="gallery py-5" id="gallery">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="title-section mb-md-5 mb-4">
+				<h3 class="w3ls-title text-align:center: text-dark font-weight-bold">
+					<h1 style="text-align:center;"><p style="font-size:80px;color:red">MEET Our Team</p></h1><h3 style="text-align:center;color:blue">Our reputation is dependent on our work. We understand how business works and we understand technology</h3>
+			</div>
+			<div class="gal-pop-style pt-xl-4">
+				<div class="row">
+					<div class="col-md-4 gal-img">
+						<a href="#gal1" title="Health Prediction"><img src="{% static 'images/manu.jpeg' %}" alt="gallery" class="img-fluid"></a>
+						<div class="des"><h1>
+                        <h1 <p style="color:Black;">Manoranjan</p></h1>
+                        <h2><p style="color:DarkOrchid;color:yellow";style="text-align:center;">Creative Diretor</p></h2><a href="mailto:webmaster@example.com">lipunpanda28@gmail.com</a></h1></div>
+					</div>
+					<div class="col-md-4 gal-img my-md-0 my-4">
+						<a href="#gal2" title="Health Prediction"><img src="{% static 'images/rahul.jpeg' %}" alt="gallery" class="img-fluid"></a>
+						<div class="des"><h1>
+                        <h1 <p style="color:Black;">Rahul</p></h1>
+                        <h2><p style="color:DarkOrchid;color:yellow">Project Manager</p></h2><a href="mailto:webmaster@example.com">rahulkumarsahoo9853@gmail.com</a></h1></div>
+					</div>
+					<div class="col-md-4 gal-img">
+						<a href="#gal3" title="Health Prediction"><img src="{% static 'images/sachi.jpg' %}" alt="gallery" class="img-fluid"></a>
+						<div class="des"><h1>
+                        <h1 <p style="color:black;">Sachidananda</p></h1>
+                        <h2><p style="color:DarkOrchid;color:yellow">Project Developer</p></h2><a href="mailto:webmaster@example.com">sachid48@gmail.com</a></h1></div>
+					</div>
+				</div>
+		<div id="gal1" class="popup-effect">
+		<div class="popup">
+			<img src="{% static 'images/manu.jpeg' %}" alt="Popup Image" class="img-fluid" />
+			<h5 class="text-name-pop mt-4">Manoranjan</h5>
+			<p class="mt-3" style="color:red">"The difference between the almost right word and the right word is really a large matter.
+				’Tis the difference between the lightning bug and the lightning."
+			</p>
+			<a class="close" href="#gallery">&times;</a>
+		</div>
+	</div>
+				<div id="gal2" class="popup-effect">
+		<div class="popup">
+			<img src="{% static 'images/rahul.jpeg' %}" alt="Popup Image" class="img-fluid" />
+			<h5 class="text-name-pop mt-4">Rahul</h5>
+			<p class="mt-3" style="color:red">Smart Health Care is very helpfully system .
+				</p>
+			<a class="close" href="#gallery">&times;</a>
+		</div>
+	</div>
+				<div id="gal3" class="popup-effect">
+		<div class="popup">
+			<img src="{% static 'images/sachi.jpg' %}" alt="Popup Image" class="img-fluid" />
+			<h5 class="text-name-pop mt-4">Sachidananda</h5>
+			<p class="mt-3" style="color:red">"No matter what people tell you, words and ideas can change the world."</p>
+			<a class="close" href="#gallery">&times;</a>
+		</div>
+	</div>
+
+	</div>
+			</section>
+
+
+	</section>
+	</div>
+{% endblock %}
+
+
+

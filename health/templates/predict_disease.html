@@ -1,0 +1,96 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+	<section class="logins py-5">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="title-section mb-md-5 mb-4">
+				<h6 class="w3ls-title-sub" style="color:red">
+                    Note :- Please not refreshing this page otherwise you will not get Actual Prediction.</h6>
+				<h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Disease Prediction</h3>
+			</div><hr/>
+			<div class="login px-sm-12" style="width:100%">
+				<form action="{% url 'predict_disease' '0' %}" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group">
+                        Please enter a symptom(anyone symptom,leave no blank spaces after and before it.)
+						<input type="text" name="sym" required="">
+                    </div>
+                       <center> <button type="submit" class="btn submit mt-4">Search</button>
+				</center></form>
+			</div>
+            {% ifequal terror "start" %}
+            <h5> Are you feeling any of these symptoms too?</h5>
+
+                <div class="login px-sm-12" style="width:100%">
+                {% for i in li %}
+                <h4 style="color:red">{{i}}</h4>
+                {% endfor %}
+				<form action="{% url 'predict_disease' '0' %}" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group row">
+						<div class="col-md-12">
+						<label>Please Select</label>
+						<select class="form-control" name="sym" required>
+                            <option value="">------Select any of these -----</option>
+                            {% for i in li %}
+                            <option value="{{i}}">{{i}}</option>
+                            {% endfor %}
+                        </select>
+						</div>
+					</div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button type="submit" class="btn submit mt-4">Next</button>
+                        </div>
+                        <div class="col-md-10">
+                            <button class="btn submit mt-4"><a href="{% url 'predict_disease' 'None' %}" style="color:white">I have none of the Above Symptom</a></button>
+                        </div>
+                    </div>
+				</form>
+			</div>
+            {% else %}
+            {% ifequal terror 'End' %}
+
+            <h4 style="color:blue;margin:2%" align="center">"Analysis Complete"</h4>
+                    <div class="form-group">
+                        <h3 align="center">You have suspected Disease  :
+                            "<span style="color:red;font-weight:bold">{{dis.name}}</span>" </h3>
+                    </div>
+
+            <div class="container-fluid" style="width:90%;margin-top:3%">
+                    <div class="container-fluid">
+                        <h1 align="center" style="font-weight:bold;font-family : 'Monotype Corsiva' ; color : #E6120E ;margin-top:4%">You may contact this Doctor</h1>
+                         </div><hr>
+                                <table id="example" class="display" style="width:100%">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Image</th>
+                                      <th>Full Name</th>
+                                      <th>Email</th>
+                                      <th>Contact</th>
+                                      <th>Address</th>
+
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              {% for i in doc %}
+                                <tr>
+                                  <td>{{forloop.counter}}</td>
+                                  <td><img src="{{i.image.url}}" style="width:80px;height:90px"></td>
+                                  <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                                  <td>{{i.user.email}}</td>
+                                  <td>{{i.contact}}</td>
+                                  <td>{{i.address}}</td>
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                      </table>
+                  </div>
+            {% endifequal %}
+            {% endifequal %}
+		</div>
+	</section>
+
+{% endblock %}
