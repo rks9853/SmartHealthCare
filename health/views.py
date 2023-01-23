@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,logout,login
 from .models import *
 import datetime
-from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
+# from chatterbot import ChatBot
+# from chatterbot.trainers import ListTrainer
 from tkinter import *
 import pyttsx3 as pp
 import speech_recognition as s
@@ -626,133 +626,133 @@ def Assign_Status(request,pid):
 
 
 
-def Help(request):
+# def Help(request):
 
-    engine = pp.init()
+#     engine = pp.init()
 
-    voices = engine.getProperty('voices')
-    print(voices)
+#     voices = engine.getProperty('voices')
+#     print(voices)
 
-    engine.setProperty('voice', voices[1].id)
+#     engine.setProperty('voice', voices[1].id)
 
-    def speak(word):
-        engine.say(word)
-        engine.runAndWait()
+#     def speak(word):
+#         engine.say(word)
+#         engine.runAndWait()
 
-    # pyttsx3
-    bot = ChatBot("My Bot")
+#     # pyttsx3
+#     bot = ChatBot("My Bot")
 
-    convo = [
-        'hello',
-        'hi',
-        'Hi,what is your name ?',
-        'My name is HELP , i am created by Rahul',
-        'how are you ?',
-        'I am doing great these days',
-        'thank you',
-        'In which city you live ?',
-        'I live in Berhampur',
-        'In which language you talk?',
-        ' I mostly talk in english',
-        'how can i help you',
-        'what is your problem',
-        'can i suggest doctors ?',
-        'what is your disease',
-        'what is your main problem','Who are you', 'Are you a patients ?', 'What can i help you ?'
-        ''
-    ]
+#     convo = [
+#         'hello',
+#         'hi',
+#         'Hi,what is your name ?',
+#         'My name is HELP , i am created by Rahul',
+#         'how are you ?',
+#         'I am doing great these days',
+#         'thank you',
+#         'In which city you live ?',
+#         'I live in Berhampur',
+#         'In which language you talk?',
+#         ' I mostly talk in english',
+#         'how can i help you',
+#         'what is your problem',
+#         'can i suggest doctors ?',
+#         'what is your disease',
+#         'what is your main problem','Who are you', 'Are you a patients ?', 'What can i help you ?'
+#         ''
+#     ]
 
-    trainer = ListTrainer(bot)
+#     trainer = ListTrainer(bot)
 
-    # now training the bot with the help of trainer
+#     # now training the bot with the help of trainer
 
-    trainer.train(convo)
+#     trainer.train(convo)
 
-    # answer = bot.get_response("what is your name?")
-    # print(answer)
+#     # answer = bot.get_response("what is your name?")
+#     # print(answer)
 
-    # print("Talk to bot ")
-    # while True:
-    #     query = input()
-    #     if query == 'exit':
-    #         break
-    #     answer = bot.get_response(query)
-    #     print("bot : ", answer)
+#     # print("Talk to bot ")
+#     # while True:
+#     #     query = input()
+#     #     if query == 'exit':
+#     #         break
+#     #     answer = bot.get_response(query)
+#     #     print("bot : ", answer)
 
-    main = Tk()
+#     main = Tk()
 
-    main.geometry("350x480")
+#     main.geometry("350x480")
 
-    main.title("HELP CENTER")
-    main.config(bg="pink")
+#     main.title("HELP CENTER")
+#     main.config(bg="pink")
 
-    # takey query : it takes audio as input from user and convert it to string..
+#     # takey query : it takes audio as input from user and convert it to string..
 
-    def takeQuery():
-        sr = s.Recognizer()
-        sr.pause_threshold = 1
-        print("your bot is listening try to speak")
-        with s.Microphone() as m:
-            try:
-                audio = sr.listen(m)
-                query = sr.recognize_google(audio, language='eng-in')
-                print(query)
-                textF.delete(0, END)
-                textF.insert(0, query)
-                ask_from_bot()
-            except Exception as e:
-                print(e)
-                print("not recognized")
+#     def takeQuery():
+#         sr = s.Recognizer()
+#         sr.pause_threshold = 1
+#         print("your bot is listening try to speak")
+#         with s.Microphone() as m:
+#             try:
+#                 audio = sr.listen(m)
+#                 query = sr.recognize_google(audio, language='eng-in')
+#                 print(query)
+#                 textF.delete(0, END)
+#                 textF.insert(0, query)
+#                 ask_from_bot()
+#             except Exception as e:
+#                 print(e)
+#                 print("not recognized")
 
-    def ask_from_bot():
-        query = textF.get()
-        answer_from_bot = bot.get_response(query)
-        msgs.insert(END, "You : " + query)
-        print(type(answer_from_bot))
-        msgs.insert(END, "Bot : " + str(answer_from_bot))
-        speak(answer_from_bot)
-        textF.delete(0, END)
-        msgs.yview(END)
+#     def ask_from_bot():
+#         query = textF.get()
+#         answer_from_bot = bot.get_response(query)
+#         msgs.insert(END, "You : " + query)
+#         print(type(answer_from_bot))
+#         msgs.insert(END, "Bot : " + str(answer_from_bot))
+#         speak(answer_from_bot)
+#         textF.delete(0, END)
+#         msgs.yview(END)
 
-    frame = Frame(main)
-    frame.config(bg="pink")
+#     frame = Frame(main)
+#     frame.config(bg="pink")
 
-    sc = Scrollbar(frame)
-    msgs = Listbox(frame, width=80, height=20, yscrollcommand=sc.set)
+#     sc = Scrollbar(frame)
+#     msgs = Listbox(frame, width=80, height=20, yscrollcommand=sc.set)
 
-    sc.pack(side=RIGHT, fill=Y)
+#     sc.pack(side=RIGHT, fill=Y)
 
-    msgs.pack(side=LEFT, fill=BOTH, pady=10)
+#     msgs.pack(side=LEFT, fill=BOTH, pady=10)
 
-    frame.pack()
+#     frame.pack()
 
-    # creating text field
+#     # creating text field
 
-    textF = Entry(main, font=("Verdana", 15),fg="green")
-    textF.pack(fill=X, pady=15)
+#     textF = Entry(main, font=("Verdana", 15),fg="green")
+#     textF.pack(fill=X, pady=15)
 
-    btn = Button(main, text="HOW CAN I HELP U", font=("Verdana", 15), command=ask_from_bot)
-    btn.pack()
+#     btn = Button(main, text="HOW CAN I HELP U", font=("Verdana", 15), command=ask_from_bot)
+#     btn.pack()
 
-    # creating a function
-    def enter_function(event):
-        btn.invoke()
+#     # creating a function
+#     def enter_function(event):
+#         btn.invoke()
 
-    # going to bind main window with enter key...
+#     # going to bind main window with enter key...
 
-    main.bind('<Return>', enter_function)
+#     main.bind('<Return>', enter_function)
 
-    def repeatL():
-        while True:
-            takeQuery()
+#     def repeatL():
+#         while True:
+#             takeQuery()
 
-    t = threading.Thread(target=repeatL)
+#     t = threading.Thread(target=repeatL)
 
-    t.start()
+#     t.start()
 
-    main.mainloop()
+#     main.mainloop()
 
-    return render(request,'contact.html')
+#     return render(request,'contact.html')
 
 
 

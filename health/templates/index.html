@@ -198,7 +198,7 @@ $(document).ready(function() {
 					</div>
 					{% else %}
 					{% if request.user.is_authenticated %}
-					{% ifequal error "pat" %}
+					
 					<div class="nav_w3ls" style="margin-left:5%;font-weight:bold">
 						<nav>
 							<label for="drop3" class="toggle">Menu</label>
@@ -231,7 +231,7 @@ $(document).ready(function() {
 							</ul>
 						</nav>
 					</div>
-					{% else %}
+					
 					<div class="nav_w3ls" style="margin-right:4%">
 						<nav>
 							<label for="drop5" class="toggle">Menu</label>
@@ -266,7 +266,7 @@ $(document).ready(function() {
 							</ul>
 						</nav>
 					</div>
-					{% endifequal %}
+					
 					{% else %}
 					<div class="nav_w3ls" style="margin-right:4%">
 						<nav>
@@ -278,7 +278,7 @@ $(document).ready(function() {
 									<a href="{% url 'about' %}">About</a></li>
 								<li><a href="{% url 'gallery' %}">Gallery</a></li>
 								<li style="padding-left:20px"><a href="{% url 'contact' %}">Contact</a></li>
-								<li style="padding-left:20px"><a href="{% url 'help' %}">Help</a></li>
+								<!--  -->
 							</ul>
 						</nav>
 					</div>
